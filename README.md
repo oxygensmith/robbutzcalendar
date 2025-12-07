@@ -12,9 +12,9 @@ A simple, static availability calendar that displays my weekly schedule, pulling
   - Color-coded blocks: Available (green), Busy (orange), Special bookings (red/blue)
 - **Responsive design**: Works on desktop and mobile
 
-## Tech Stack
+## To do / to come
 
-- Booking functionality
+- Booking functionality (using Netlify or Airtable)
 
 ## Tech Stack
 
