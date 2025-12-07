@@ -1,0 +1,369 @@
+//
+// Navbar
+// code from Bootstrap
+
+:root {
+  --navbar-height: 60px; // rough measure for now, for offset
+  --nav-bg: var(--color-background);
+  --nav-bg--work: transparent;
+  --nav-bg--transform: var(--color-primary);
+  --nav-bg--work--transform: var(--white);
+  --nav-brand--fill--transform: var(--white);
+  --nav-link--padding-x: 24px;
+  --nav-link--padding-y: 0.75rem;
+  --nav-link--font-size: 1.2rem;
+  --nav-link--font-weight: 400;
+  --nav-link--color: var(--color-primary);
+  --nav-link--hover-color: var(--color-primary);
+  --nav-link--hover-opacity: 0.5;
+  --nav-link--color--transform: var(--white);
+  --nav-link--hover-color--transform: var(--white);
+  --nav-link--active--border-bottom: 3px solid var(--color-primary);
+  --nav-link--active--border-bottom--transform: 3px solid var(--white);
+}
+
+// 3 parts:
+// .nav-header:
+// .navbar:
+// .nav-container: constrains navbar
+
+// 1. Fixed transparent frame for the navbar
+.nav-header {
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 2;
+}
+
+// 2. Whole nav element incl. logo
+.navbar {
+  margin: 1rem 1rem 0 1rem;
+  font-family: var(--font-family-nav);
+  font-weight: var(--font-weight-nav);
+  // transition: all .3s;
+}
+
+// 3. constrainer of the navbar
+.nav-container {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--nav-bg);
+}
+
+// 4. the <ul> with the meanu links
+ul.navbar-nav {
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
+  flex-direction: column;
+  padding-left: 0;
+  list-style: none;
+}
+
+// toggler
+.navbar-toggler {
+  display: block;
+  border: 0;
+  color: var(--color-primary);
+  background: transparent;
+  margin-top: 0;
+  &:hover,
+  &:active,
+  &:focus {
+    border: 0;
+    box-shadow: unset;
+  }
+  &:focus {
+    background-color: var(--color-primary);
+    color: var(--white);
+  }
+  @include media-breakpoint-up(md) {
+    display: none;
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+// brand
+a.navbar-brand {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: none;
+  display: flex;
+  flex-flow: row nowrap;
+  .flag {
+    margin-right: 1rem;
+    padding-top: 0;
+    svg {
+      width: 80px;
+    }
+    svg path {
+      fill: var(--color-primary);
+      transition: all 0.2s ease-in-out;
+    }
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+    }
+  }
+  .name {
+    // positioning is constant, deal with fade-out on scroll later
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    transition: all 0.3s;
+    transform: translateY(-80px);
+    @include media-breakpoint-up(md) {
+      font-size: 1.2rem;
+    }
+    @include media-breakpoint-up(lg) {
+      font-size: 1.32rem;
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+// Name
+// The name is only in its regular position when
+// .show-name is there, otherwise zoooooop up off the screen
+.navbar.show-name .name {
+  transform: translateY(0px);
+}
+
+@include media-breakpoint-up(md) {
+  .navbar-expand-md .navbar-collapse {
+    flex-basis: auto;
+    display: flex !important;
+  }
+  .navbar-expand-md ul.navbar-nav {
+    flex-flow: row wrap;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .navbar-expand-lg .navbar-collapse {
+    flex-basis: auto;
+    display: flex !important;
+  }
+  .navbar-expand-lg ul.navbar-nav {
+    flex-flow: row wrap;
+  }
+}
+
+a.nav-link {
+  display: block;
+  text-decoration: none;
+  font-size: var(--nav-link--font-size);
+  font-weight: var(--nav-link--font-weight);
+  padding: var(--nav-link--padding-y) var(--nav-link--padding-x);
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.navbar ul.navbar-nav {
+  > li.nav-item > a.nav-link {
+    color: var(--color-primary);
+    border-bottom: none;
+    &:hover,
+    &:visited,
+    &:active,
+    &:focus {
+      color: var(--nav-link--hover-color);
+      opacity: var(--nav-link--hover-opacity);
+    }
+  }
+  > li.nav-item > a.nav-link.active {
+    border-bottom: 3px solid var(--color-primary);
+  }
+}
+
+// transformed appearance
+.navbar.navbar-shrink {
+  .container {
+    background-color: var(--nav-bg--transform);
+  }
+  .navbar-brand {
+    a.navbar-brand {
+      color: var(--nav-brand--fill--transform);
+      border-bottom: none;
+      // change logo SVG fill colour
+      .flag svg path {
+        fill: var(--nav-brand--fill--transform);
+      }
+    }
+  }
+  ul.navbar-nav {
+    > li.nav-item > a.nav-link {
+      &:link,
+      &:visited {
+        color: var(--nav-link--color--transform);
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        color: var(--nav-link--hover-color--transform);
+        opacity: var(--nav-link--hover-opacity);
+      }
+    }
+    > li.nav-item > a.nav-link.active {
+      border-bottom: 3px solid #fff;
+    }
+  }
+}
+// change logo color depending on scroll position
+.navbar.navbar-shrink .flag svg path {
+  fill: var(--nav-brand--fill--transform);
+}
+
+.navbar.navbar-shrink .navbar-toggler {
+  color: var(--nav-link--color--transform);
+  &:focus {
+    border: 3px solid var(--color-primary--700);
+    color: var(--nav-link--hover-color--transform);
+  }
+}
+
+// icons inside navbar links
+
+.nav-link-icon {
+  margin-right: 0.25rem;
+  display: none;
+
+  @include media-breakpoint-up(md) {
+    display: initial;
+  }
+}
+
+.nav-link-text {
+  display: inline;
+}
+
+// work template modifications to the navbar-brand
+.work-template #mainNav .container {
+  background-color: var(--nav-bg--work);
+}
+
+.work-template #mainNav .flag svg path {
+  fill: $black;
+  transition: all 0.2s ease-in-out;
+}
+
+.work-template #mainNav a.navbar-brand {
+  .name {
+    color: $black;
+  }
+}
+
+.work-template #mainNav ul.navbar-nav {
+  > li.nav-item > a.nav-link {
+    color: $black;
+
+    &:hover,
+    &:visited,
+    &:active,
+    &:focus {
+      color: $gray-700;
+    }
+  }
+}
+
+// transformed colours, work-template edition (doesn't transform)
+.work-template #mainNav.navbar-shrink {
+  .container {
+    background-color: var(--nav-bg--work--transform);
+  }
+  ul.navbar-nav {
+    a.navbar-brand {
+      color: $black;
+      border-bottom: none;
+      .flag svg path {
+        fill: $black;
+      }
+    }
+    > li.nav-item > a.nav-link {
+      &:link,
+      &:visited {
+        color: $black;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: var(--color-primary--200);
+      }
+    }
+
+    > li.nav-item > a.nav-link.active {
+      border-bottom: 2px solid $black;
+    }
+  }
+}
+
+// Fix for the tablet view issue - ensure nav is full width in mobile view
+.navbar .collapse:not(.show) {
+  display: none;
+}
+.navbar .collapse.show {
+  width: 100%;
+}
+
+// 3. Add specific rules for the problematic middle breakpoints:
+@include media-breakpoint-up(md) {
+  // Force navbar to behave as mobile version in this range
+  .navbar-collapse {
+    display: none;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-toggler {
+    display: block; // Ensure toggle is visible
+  }
+}
+
+// 4. Add cleanup for desktop view:
+@include media-breakpoint-up(lg) {
+  .navbar-collapse {
+    display: flex !important;
+    height: auto !important;
+    width: auto !important;
+    margin-top: 0 !important;
+    overflow: visible !important;
+  }
+
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+
+  .navbar-toggler {
+    display: none !important;
+  }
+}
+
+// Force navbar-nav to take full width in mobile mode
+@media (max-width: 991px) {
+  .navbar-nav {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .navbar-collapse {
+    position: absolute;
+    top: 100%; // Position below the navbar
+    left: 0;
+    right: 0;
+    background-color: var(--nav-bg); // Match navbar background
+    z-index: 1000;
+    padding: 0 1rem; // Add some padding
+
+    // Apply the same background color transformation as the navbar
+    .navbar.navbar-shrink & {
+      background-color: var(--nav-bg--transform);
+    }
+  }
+}

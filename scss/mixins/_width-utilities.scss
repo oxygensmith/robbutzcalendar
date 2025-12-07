@@ -1,0 +1,37 @@
+
+@mixin generate-width-utilities {
+  @for $i from 25 through 100 {
+    @if $i % 25 == 0 {
+      .width-#{$i} {
+        width: percentage($i / 100) !important;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+  
+  // Responsive variants
+  @each $breakpoint in map-keys($breakpoints) {
+    @if $breakpoint != "xs" {  // Skip xs as it's the default
+      @include media-breakpoint-up($breakpoint) {
+        @for $i from 25 through 100 {
+          @if $i % 25 == 0 {
+            .width-#{$breakpoint}-#{$i} {
+              width: percentage($i / 100) !important;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Auto width
+  .width-auto {
+    width: auto !important;
+  }
+}
+
+// Add to your generate-responsive-spacing mixin call
+@include generate-width-utilities;

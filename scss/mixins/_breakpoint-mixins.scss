@@ -1,0 +1,91 @@
+// Breakpoint mixin for min-width (media-breakpoint-up)
+@mixin media-breakpoint-up($breakpoint) {
+  // Get the breakpoint value
+  $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+  // If the breakpoint exists in the map
+  @if $breakpoint-value != null {
+    // If breakpoint is not 'xs' which is 0px
+    @if $breakpoint-value > 0 {
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    } @else {
+      // Just include content if breakpoint is xs
+      @content;
+    }
+  }
+  // If breakpoint doesn't exist
+  @else {
+    @error "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
+
+// Breakpoint mixin for max-width (media-breakpoint-down)
+@mixin media-breakpoint-down($breakpoint) {
+  // Get the breakpoint value
+  $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+  // If the breakpoint exists in the map
+  @if $breakpoint-value != null {
+    // If breakpoint is not 'xs' which is 0px
+    @if $breakpoint-value > 0 {
+      // Using 1px less instead of 0.02px to avoid calculation errors
+      @media (max-width: ($breakpoint-value - 1px)) {
+        @content;
+      }
+    }
+  }
+  // If breakpoint doesn't exist
+  @else {
+    @error "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
+
+// Breakpoint mixin for between min and max width (media-breakpoint-between)
+@mixin media-breakpoint-between($lower, $upper) {
+  // Get the breakpoint values
+  $lower-breakpoint: map-get($breakpoints, $lower);
+  $upper-breakpoint: map-get($breakpoints, $upper);
+  
+  // If both breakpoints exist in the map
+  @if $lower-breakpoint != null and $upper-breakpoint != null {
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1px)) {
+      @content;
+    }
+  }
+  // If breakpoints don't exist
+  @else {
+    @error "Invalid breakpoint(s): #{$lower} or #{$upper}.";
+  }
+}
+
+// Breakpoint mixin for only the specific breakpoint (media-breakpoint-only)
+@mixin media-breakpoint-only($breakpoint) {
+  // Get all breakpoint keys
+  $breakpoint-keys: map-keys($breakpoints);
+  $breakpoint-index: index($breakpoint-keys, $breakpoint);
+  
+  @if $breakpoint-index != null {
+    $current-bp: map-get($breakpoints, $breakpoint);
+    
+    // If not the last breakpoint
+    @if $breakpoint-index < length($breakpoint-keys) {
+      $next-bp-key: nth($breakpoint-keys, $breakpoint-index + 1);
+      $next-bp: map-get($breakpoints, $next-bp-key);
+      
+      @media (min-width: $current-bp) and (max-width: ($next-bp - 1px)) {
+        @content;
+      }
+    }
+    // If it's the last breakpoint
+    @else {
+      @media (min-width: $current-bp) {
+        @content;
+      }
+    }
+  }
+  @else {
+    @error "Invalid breakpoint: #{$breakpoint}.";
+  }
+}

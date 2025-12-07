@@ -1,0 +1,93 @@
+//
+// Colors
+//
+
+//- Override and add to color system
+// original
+$teal: #1abc9c;
+$dark-blue: #2c3e50;
+$gray-900: #212529;
+
+$black: #000;
+$white: #fff;
+
+// palette 0;
+$light-green: #ace894;
+$cream-green: #ebf8b8;
+$red-coquelicot: #f15025;
+$blue-cerulean: #006989;
+$tangerine: #f08700;
+$sunset: #ffd399;
+$orange: #ffaf47;
+$celadon: #bbdfc6;
+$blue-colombia: #d4e8f2;
+$black-space-cadet: #1a1c37;
+$black-licorice: #1a090d;
+$purple-mardi-gras: rgba(130, 46, 129, 1);
+
+// palette 1
+$linen: rgba( 244,230,220, 1);
+$blue-capri: rgba(98,191,237, 1);
+$blue-light: rgba(171,211,229, 1);
+$green-ming: rgba(21,97,109, 1);
+$black-xiketic: rgba(15,16,32, 1);
+// $purple-mardi-gras: rgba(130,46,129, 1);
+
+// palette 2
+$maximum-yellow-red: rgba(255, 200, 87, 1);
+$burnt-sienna: rgba(233, 114, 76, 1);
+$cardinal: rgba(197, 40, 61, 1);
+$dark-sienna: rgba(72, 29, 36, 1);
+$blue-sapphire: rgba(37, 95, 133, 1);
+
+// palette 3
+$razzmic-berry: rgba(136, 82, 127, 1);
+$yellow-naples: #f1db4b;
+$grey: #dddedb;
+$grey-slate: #778295;
+
+// SCSS color variables
+$colors: (
+  "primary": $purple-mardi-gras,
+  "secondary": $blue-light,
+  "background": $blue-colombia,
+  "black": $black-space-cadet,
+  "licorice": $black-licorice,
+  "yellow": $sunset,
+  "orange": $orange,
+  "tangerine": $tangerine,
+  "green": $celadon,
+  "green-light": $light-green,
+  "green-cream": $cream-green,
+  "red": $cardinal,
+  "coquelicot": $red-coquelicot,
+  "grey": $grey,
+  "grey-slate": $grey-slate
+);
+
+// Generate CSS variables from the SCSS color map
+:root {
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+}
+
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+$min-contrast-ratio: 2.4;
+
+// body background and text colour
+$body-bg: var(--background);
+$body-color: var(--color-black);
+
+
+// Text colors for themes
+$text-dark: var(--color-black);
+$text-light: var(--white);
+
+// Define CSS variables for these as well
+:root {
+  --color-text-dark: #{$text-dark};
+  --color-text-light: #{$text-light};
+}

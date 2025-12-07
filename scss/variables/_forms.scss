@@ -1,0 +1,35 @@
+// variables/_forms.scss
+
+// Form styling variables
+:root {
+  // Input sizing and spacing
+  // font-size with other typography
+  --input-padding-y: 0.75rem;
+  --input-padding-x: 1rem;
+  --input-border-radius: 0.25rem;
+  --input-border-width: 1px;
+  
+  // Checkbox/radio sizing
+  --checkbox-size: 1rem;
+  --checkbox-margin-right: 0.5rem;
+  
+  // Colors
+  --input-bg: white;
+  --input-border-color: var(--color-gray-300);
+  --input-focus-border-color: var(--color-primary);
+  --input-focus-box-shadow: 0 0 0 0.25rem rgba(var(--color-primary), 0.25);
+  --input-color: var(--color-black);
+  --input-placeholder-color: var(--color-gray-500);
+  --input-disabled-bg: var(--color-gray-200);
+  
+  // Validation colors
+  --input-valid-color: var(--color-green);
+  --input-invalid-color: var(--color-red);
+  
+  // Label styling
+  --label-margin-bottom: 0.5rem;
+  --label-font-weight: 500;
+  
+  // Spacing
+  --form-group-margin-bottom: var(--space-3);
+}

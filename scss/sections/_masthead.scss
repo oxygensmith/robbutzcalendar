@@ -1,0 +1,129 @@
+//
+// Masthead
+//
+
+$masthead-padding: 15px;
+
+// widths, padding only for now
+.masthead .container {
+    display: flex;
+    flex-flow: column;
+    padding-bottom: 0;
+    padding-top: 4.5rem;
+    text-align: left;
+    @include media-breakpoint-up(md) {
+        flex-flow: row wrap;
+    }    
+    @include media-breakpoint-up(lg) {
+        padding-top: 7.5rem;
+    }
+}
+
+.masthead-image {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.masthead-words {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    max-width: 100%;
+    @include media-breakpoint-up(md) {
+        background-color: transparent;
+    }
+}
+
+.masthead-image,
+.masthead-words {
+    padding-left: $masthead-padding;
+    padding-right: $masthead-padding;
+}
+
+.imgbox {
+    position: relative;
+    overflow: hidden;
+}
+.imgbox.with-background { // when using a background image
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.imgbox .img-masthead-bg { // when layering an image here
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    @include media-breakpoint-up(md) {
+        width: 100%;
+    }
+}
+.imgbox .img-masthead-fg {
+    width: 100%;
+    height: auto;
+    margin-top: 180px;
+    @include media-breakpoint-up(md) {
+            width: 100%;
+    }
+    margin-bottom: -10px;
+}
+
+.masthead-heading {
+    font-size: 2rem;
+    line-height: 1.25;
+    margin-top: 2rem;
+    max-width: 450px;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include media-breakpoint-up(md) {
+        font-size: 1.8rem;
+        padding-left: 2rem;
+        margin-top: 0;
+        max-width: unset;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 2.3rem;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 2.6rem;
+        line-height: 1.3;
+        padding-left: 3rem;
+    }
+    @include media-breakpoint-up(xxl) {
+        font-size: 2.8rem;
+    }
+}
+
+.masthead-subheading {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    max-width: 450px;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include media-breakpoint-up(md) {
+        padding-left: 2rem;
+        max-width: unset;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 1.8rem;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 2.1rem;
+        padding-left: 3rem;
+        padding-bottom: 3rem;
+    }
+    @include media-breakpoint-up(xxl) {
+        font-size: 2.25rem;
+    }
+}
+
+
+

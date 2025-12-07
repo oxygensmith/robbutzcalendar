@@ -1,0 +1,82 @@
+//
+// Global
+//
+// Apply responsive typography
+@include responsive-typography;
+
+// Generate utility classes
+@include generate-text-size-utilities;
+
+// prevent sidescroll
+html {
+    height: 100%;
+    scroll-padding-top: calc(var(--navbar-height) - 1px);
+}
+
+// Apply base typography styles
+body {
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--p-font-size-xs); // Default body text size
+  background-color: var(--color-background);
+}
+
+p, ul, li {
+    font-family: var(--font-family-base);
+}
+
+a {
+    color: var(--color-primary);
+}
+
+// all margin spacing comes from the bottom of text blocks.
+h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+    margin-top: 0; 
+}
+
+h1, h2, h3, h4, h5, h6, .subheading {
+    color: var(--color-primary);
+}
+.intro {
+    color: $body-color;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+// Styling for page sections
+.page-section {
+    padding: var(--space-7) 0;
+}
+
+// headings
+.page-section .page-section-heading {
+    font-size: 3rem;
+    line-height: 1.2;
+    @include media-breakpoint-up(lg) {
+        font-size: 3.6rem;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 4rem;
+    }
+}
+
+.subheading {
+    @include media-breakpoint-up(md) {
+        font-size: 1.5rem;
+    }
+}
+
+// for background sections
+.img-background {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    bottom: 0;
+}
+
+

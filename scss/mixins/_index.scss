@@ -1,0 +1,12 @@
+// mixins/index manifest
+@import 'breakpoint-mixins';    // Load media query mixins first
+@import 'color-contrast';       // Color contrast functions (for accessibility)
+@import 'color-utilities';      // Generate color utility classes
+@import 'spacing-utilities';    // Margin and padding utilities
+@import 'width-utilities';      // Width utilities (if separate from spacing)
+@import 'display-utilities';    // Display property utilities
+@import 'grid-utilities';       // Grid system (rows and columns)
+@import 'shadow-utilities';     // Shadow utilities
+@import 'container-mixins';     // Container classes
+@import 'typography-mixins';    // Typography styles and utilities
+@import 'form-utilities';       // Form component styles

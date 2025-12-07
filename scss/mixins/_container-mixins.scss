@@ -1,0 +1,125 @@
+// Generate container classes
+@mixin generate-container-classes {
+  // Standard container
+  .container {
+    width: 100%;
+    padding-right: $container-padding-x;
+    padding-left: $container-padding-x;
+    margin-right: auto;
+    margin-left: auto;
+    
+    // Set max-width at each breakpoint
+    @include media-breakpoint-up(sm) {
+      max-width: $container-max-width-sm;
+    }
+    
+    @include media-breakpoint-up(md) {
+      max-width: $container-max-width-md;
+    }
+    
+    @include media-breakpoint-up(lg) {
+      max-width: $container-max-width-lg;
+    }
+    
+    @include media-breakpoint-up(xl) {
+      max-width: $container-max-width-xl;
+    }
+    
+    @include media-breakpoint-up(xxl) {
+      max-width: $container-max-width-xxl;
+    }
+  }
+
+  // Fluid container (always 100% width)
+  .container-fluid {
+    width: 100%;
+    padding-right: $container-padding-x;
+    padding-left: $container-padding-x;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  // Responsive containers that are 100% wide until a specific breakpoint
+  .container-sm {
+    @extend .container-fluid;
+    
+    @include media-breakpoint-up(sm) {
+      max-width: $container-max-width-sm;
+    }
+    
+    @include media-breakpoint-up(md) {
+      max-width: $container-max-width-md;
+    }
+    
+    @include media-breakpoint-up(lg) {
+      max-width: $container-max-width-lg;
+    }
+    
+    @include media-breakpoint-up(xl) {
+      max-width: $container-max-width-xl;
+    }
+    
+    @include media-breakpoint-up(xxl) {
+      max-width: $container-max-width-xxl;
+    }
+  }
+
+  .container-md {
+    @extend .container-fluid;
+    
+    @include media-breakpoint-up(md) {
+      max-width: $container-max-width-md;
+    }
+    
+    @include media-breakpoint-up(lg) {
+      max-width: $container-max-width-lg;
+    }
+    
+    @include media-breakpoint-up(xl) {
+      max-width: $container-max-width-xl;
+    }
+    
+    @include media-breakpoint-up(xxl) {
+      max-width: $container-max-width-xxl;
+    }
+  }
+
+  .container-lg {
+    @extend .container-fluid;
+    
+    @include media-breakpoint-up(lg) {
+      max-width: $container-max-width-lg;
+    }
+    
+    @include media-breakpoint-up(xl) {
+      max-width: $container-max-width-xl;
+    }
+    
+    @include media-breakpoint-up(xxl) {
+      max-width: $container-max-width-xxl;
+    }
+  }
+
+  .container-xl {
+    @extend .container-fluid;
+    
+    @include media-breakpoint-up(xl) {
+      max-width: $container-max-width-xl;
+    }
+    
+    @include media-breakpoint-up(xxl) {
+      max-width: $container-max-width-xxl;
+    }
+  }
+
+  .container-xxl {
+    @extend .container-fluid;
+    
+    @include media-breakpoint-up(xxl) {
+      max-width: $container-max-width-xxl;
+    }
+  }
+}
+
+// Call the mixin to generate the utilities
+@include generate-container-classes;

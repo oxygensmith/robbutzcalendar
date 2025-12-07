@@ -1,0 +1,55 @@
+$tint-collections: (
+  "primary",
+  "secondary"
+  // Always keep primary and secondary here, 
+  // but add any other colors that should have tint/shade variations
+);
+
+// Tint/shade percentage values to generate
+// Format: (variant-number: (percentage, is-lighter))
+// Using a map of maps to store both the percentage and whether it's a lighter variant
+$tint-percentages: (
+  "100": (percentage: 40%, is-lighter: true),   // 40% white mix (lightest)
+  "200": (percentage: 30%, is-lighter: true),   // 30% white mix
+  "300": (percentage: 20%, is-lighter: true),   // 20% white mix
+  "400": (percentage: 10%, is-lighter: true),   // 10% white mix
+  "500": (percentage: 0%, is-lighter: false),   // Base color (no mix)
+  "600": (percentage: 10%, is-lighter: false),  // 10% black mix
+  "700": (percentage: 20%, is-lighter: false),  // 20% black mix
+  "800": (percentage: 30%, is-lighter: false),  // 30% black mix
+  "900": (percentage: 40%, is-lighter: false)   // 40% black mix (darkest)
+);
+
+
+// Generate CSS variables for base colors and their tint/shade variations
+:root {
+  // First, define the base colors
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+  
+  // Then, generate tint/shade variations for selected colors
+  @each $color-name in $tint-collections {
+    // Get the base color value
+    $base-color: map-get($colors, $color-name);
+    
+    @if $base-color {
+      // Create each tint/shade variation
+      @each $variant, $settings in $tint-percentages {
+        $percentage: map-get($settings, percentage);
+        $is-lighter: map-get($settings, is-lighter);
+        
+        @if $variant == "500" {
+          // 500 is the base color, already defined above
+          --color-#{$color-name}-500: var(--color-#{$color-name});
+        } @else if $is-lighter {
+          // Lighter variants (white mix)
+          --color-#{$color-name}-#{$variant}: #{mix(white, $base-color, $percentage)};
+        } @else {
+          // Darker variants (black mix)
+          --color-#{$color-name}-#{$variant}: #{mix(black, $base-color, $percentage)};
+        }
+      }
+    }
+  }
+}

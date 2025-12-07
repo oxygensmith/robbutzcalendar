@@ -1,0 +1,26 @@
+// Generate color utility classes
+@mixin generate-gray-utilities {
+  // Create utility classes for text colors
+  @each $key, $value in $grays {
+    .text-gray-#{$key} {
+      color: $value !important;
+    }
+  }
+
+  // Create utility classes for background colors
+  @each $key, $value in $grays {
+    .bg-gray-#{$key} {
+      background-color: $value !important;
+    }
+  }
+
+  // Create utility classes for border colors
+  @each $key, $value in $grays {
+    .border-gray-#{$key} {
+      border-color: $value !important;
+    }
+  }
+}
+
+// Call the mixin to generate the utilities
+@include generate-gray-utilities;

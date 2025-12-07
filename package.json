@@ -1,0 +1,23 @@
+{
+  "name": "calendar-robbutz",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Rob Butz availability calendar",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
+    "update": "node scripts/update-json.js"
+  },
+  "keywords": [],
+  "author": "Rob Butz",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.0",
+    "parcel": "^2.16.0",
+    "parcel-reporter-static-files-copy": "^1.5.3"
+  }
+}

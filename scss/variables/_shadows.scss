@@ -1,0 +1,22 @@
+// Define shadow values as CSS custom properties
+:root {
+  // Shadow values
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --shadow-none: none;
+  --shadow-md: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+  --shadow-inner: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+
+// Create a map for shadow values (for generating utility classes)
+$shadows: (
+  "sm": var(--shadow-sm),
+  "": var(--shadow),     // Default shadow
+  "lg": var(--shadow-lg),
+  "none": var(--shadow-none),
+  "md": var(--shadow-md),
+  "xl": var(--shadow-xl),
+  "inner": var(--shadow-inner)
+);

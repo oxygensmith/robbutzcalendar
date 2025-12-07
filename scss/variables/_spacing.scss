@@ -1,0 +1,42 @@
+// 
+// variables/_spacing.scss
+// 
+:root {
+    // grid system
+    --gutter-x: 1.5rem;
+    --gutter-y: 0;
+}
+
+// Base unit for spacing
+$spacing-unit: 1rem;  // 16px by default
+
+// Spacing scale
+:root {
+  // Core spacing variables
+  --space-0: 0;
+  --space-1: #{$spacing-unit * 0.25};  // 4px
+  --space-2: #{$spacing-unit * 0.5};   // 8px
+  --space-3: #{$spacing-unit};         // 16px
+  --space-4: #{$spacing-unit * 1.5};   // 24px
+  --space-5: #{$spacing-unit * 2};     // 32px
+  --space-6: #{$spacing-unit * 3};     // 48px
+  --space-7: #{$spacing-unit * 4};     // 64px
+  --space-8: #{$spacing-unit * 6};     // 96px
+  
+  // Special purpose spacing (can be adjusted as needed)
+  --space-section: var(--space-8);     // Section spacing
+  --space-heading-after: var(--space-3); // Space after headings (discussed below)
+}
+
+// SCSS map for generating utilities
+$spacers: (
+  0: 0,
+  1: $spacing-unit * 0.25,
+  2: $spacing-unit * 0.5,
+  3: $spacing-unit,
+  4: $spacing-unit * 1.5,
+  5: $spacing-unit * 2,
+  6: $spacing-unit * 3,
+  7: $spacing-unit * 4,
+  8: $spacing-unit * 6
+);

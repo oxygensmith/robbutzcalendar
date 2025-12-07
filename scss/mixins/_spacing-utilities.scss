@@ -1,0 +1,222 @@
+// mixins/_spacing-utilities.scss
+
+// Generate margin utilities
+@mixin generate-margin-utilities {
+  @each $key, $value in $spacers {
+    // All directions
+    .m-#{$key} {
+      margin: #{$value} !important;
+    }
+    
+    // Horizontal (left and right)
+    .mx-#{$key} {
+      margin-left: #{$value} !important;
+      margin-right: #{$value} !important;
+    }
+    
+    // Vertical (top and bottom)
+    .my-#{$key} {
+      margin-top: #{$value} !important;
+      margin-bottom: #{$value} !important;
+    }
+    
+    // Individual directions
+    .mt-#{$key} {
+      margin-top: #{$value} !important;
+    }
+    
+    .mr-#{$key} {
+      margin-right: #{$value} !important;
+    }
+    
+    .mb-#{$key} {
+      margin-bottom: #{$value} !important;
+    }
+    
+    .ml-#{$key} {
+      margin-left: #{$value} !important;
+    }
+  }
+  
+  // Auto margins
+  .m-auto {
+    margin: auto !important;
+  }
+  
+  .mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .my-auto {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+  
+  .mt-auto {
+    margin-top: auto !important;
+  }
+  
+  .mr-auto {
+    margin-right: auto !important;
+  }
+  
+  .mb-auto {
+    margin-bottom: auto !important;
+  }
+  
+  .ml-auto {
+    margin-left: auto !important;
+  }
+}
+
+// Generate padding utilities
+@mixin generate-padding-utilities {
+  @each $key, $value in $spacers {
+    // All directions
+    .p-#{$key} {
+      padding: #{$value} !important;
+    }
+    
+    // Horizontal (left and right)
+    .px-#{$key} {
+      padding-left: #{$value} !important;
+      padding-right: #{$value} !important;
+    }
+    
+    // Vertical (top and bottom)
+    .py-#{$key} {
+      padding-top: #{$value} !important;
+      padding-bottom: #{$value} !important;
+    }
+    
+    // Individual directions
+    .pt-#{$key} {
+      padding-top: #{$value} !important;
+    }
+    
+    .pr-#{$key} {
+      padding-right: #{$value} !important;
+    }
+    
+    .pb-#{$key} {
+      padding-bottom: #{$value} !important;
+    }
+    
+    .pl-#{$key} {
+      padding-left: #{$value} !important;
+    }
+  }
+}
+
+// Generate responsive spacing utilities
+@mixin generate-responsive-spacing {
+  // Default utilities (no breakpoint suffix)
+  @include generate-margin-utilities;
+  @include generate-padding-utilities;
+  
+  // Responsive variants
+  @each $breakpoint in map-keys($breakpoints) {
+    @if $breakpoint != "xs" {  // Skip xs as it's the default
+      @include media-breakpoint-up($breakpoint) {
+        @each $key, $value in $spacers {
+          // Responsive margins
+          .m-#{$breakpoint}-#{$key} {
+            margin: #{$value} !important;
+          }
+          
+          .mx-#{$breakpoint}-#{$key} {
+            margin-left: #{$value} !important;
+            margin-right: #{$value} !important;
+          }
+          
+          .my-#{$breakpoint}-#{$key} {
+            margin-top: #{$value} !important;
+            margin-bottom: #{$value} !important;
+          }
+          
+          .mt-#{$breakpoint}-#{$key} {
+            margin-top: #{$value} !important;
+          }
+          
+          .mr-#{$breakpoint}-#{$key} {
+            margin-right: #{$value} !important;
+          }
+          
+          .mb-#{$breakpoint}-#{$key} {
+            margin-bottom: #{$value} !important;
+          }
+          
+          .ml-#{$breakpoint}-#{$key} {
+            margin-left: #{$value} !important;
+          }
+          
+          // Responsive paddings
+          .p-#{$breakpoint}-#{$key} {
+            padding: #{$value} !important;
+          }
+          
+          .px-#{$breakpoint}-#{$key} {
+            padding-left: #{$value} !important;
+            padding-right: #{$value} !important;
+          }
+          
+          .py-#{$breakpoint}-#{$key} {
+            padding-top: #{$value} !important;
+            padding-bottom: #{$value} !important;
+          }
+          
+          .pt-#{$breakpoint}-#{$key} {
+            padding-top: #{$value} !important;
+          }
+          
+          .pr-#{$breakpoint}-#{$key} {
+            padding-right: #{$value} !important;
+          }
+          
+          .pb-#{$breakpoint}-#{$key} {
+            padding-bottom: #{$value} !important;
+          }
+          
+          .pl-#{$breakpoint}-#{$key} {
+            padding-left: #{$value} !important;
+          }
+        }
+        
+        // Responsive auto margins
+        .m-#{$breakpoint}-auto {
+          margin: auto !important;
+        }
+        
+        .mx-#{$breakpoint}-auto {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        
+        .my-#{$breakpoint}-auto {
+          margin-top: auto !important;
+          margin-bottom: auto !important;
+        }
+        
+        .mt-#{$breakpoint}-auto {
+          margin-top: auto !important;
+        }
+        
+        .mr-#{$breakpoint}-auto {
+          margin-right: auto !important;
+        }
+        
+        .mb-#{$breakpoint}-auto {
+          margin-bottom: auto !important;
+        }
+        
+        .ml-#{$breakpoint}-auto {
+          margin-left: auto !important;
+        }
+      }
+    }
+  }
+}
+
+// Call the mixin to generate all utilities
+@include generate-responsive-spacing;

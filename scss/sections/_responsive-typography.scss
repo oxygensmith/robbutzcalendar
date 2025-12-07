@@ -1,0 +1,48 @@
+// sections/_responsive-typography.scss
+
+// SM breakpoint
+@include media-breakpoint-up(sm) {
+  :root {
+    --h1-font-size: 2rem;      /* 32px */
+    --h2-font-size: 1.25rem;   /* 20px */
+    --h3-font-size: 1.628rem;  /* 26.0475px */
+    --p-font-size: 1.2rem;    /* 20px */
+    --input-font-size: 1.2rem;    /* 20px */
+    --form-check-label: 1rem;
+  }
+}
+
+// MD breakpoint
+@include media-breakpoint-up(md) {
+  :root {
+    --h1-font-size: 1.8rem;    /* 28.8px */
+    --h2-font-size: 1.25rem;   /* 20px */
+    --h3-font-size: 1.473rem;  /* 23.561px */
+    --p-font-size: 1.15rem;    /* 20px */
+    --input-font-size: 1.15rem;    /* 20px */
+    --form-check-label: 1rem;
+  }
+}
+// LG breakpoint
+@include media-breakpoint-up(lg) {
+  :root {
+    --h1-font-size: 2.3rem;
+    --h2-font-size: 1.8rem;
+    --h3-font-size: 1.7rem;
+    --p-font-size: 1.2rem;
+    --input-font-size: 1.2rem;
+    --form-check-label: 1rem;
+  }
+}
+
+// XL breakpoint
+@include media-breakpoint-up(xl) {
+  :root {
+    --h1-font-size: 3.3rem;
+    --h2-font-size: 3.2rem;
+    --h3-font-size: 1.875rem;
+    --p-font-size: 1.25rem;
+    --input-font-size: 1.25rem;
+    --form-check-label: 1rem;
+  }
+}

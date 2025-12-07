@@ -1,0 +1,25 @@
+// Generate shadow utility classes
+@mixin generate-shadow-utilities {
+  // Generate shadow utility classes
+  @each $suffix, $value in $shadows {
+    @if $suffix == "" {
+      // For the default .shadow class (without suffix)
+      .shadow {
+        box-shadow: $value !important;
+      }
+    } @else {
+      // For all other shadow classes with suffixes
+      .shadow-#{$suffix} {
+        box-shadow: $value !important;
+      }
+    }
+  }
+
+  // Add a .no-shadow utility as an alternative to .shadow-none
+  .no-shadow {
+    box-shadow: var(--shadow-none) !important;
+  }
+}
+
+// Call the mixin to generate the utilities
+@include generate-shadow-utilities;

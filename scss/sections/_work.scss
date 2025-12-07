@@ -1,0 +1,53 @@
+.masthead-open {
+    /* no height limit on this masthead */
+    position: relative;
+    padding-bottom: 0;
+    width: 100%;
+    margin-top: 8rem;
+    bottom: 5rem;
+    background-position: center center;
+    background-size: cover;
+}
+
+.masthead-case {
+    position: relative;
+    padding-bottom: 0;
+    width: 100%;
+    height: 50vh;
+    // @include flex-center;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    @include media-breakpoint-up(sm) {
+        height: 60vh;
+    }
+    @include media-breakpoint-up(md) {
+        height: 70vh;
+    }
+    @include media-breakpoint-up(lg) {
+        height: 80vh;
+    }
+    @include media-breakpoint-up(xl) {
+        height: 90vh;
+    }
+}
+
+.img-centered {
+    margin: 5%;
+    @extend .shadow-lg;
+}
+
+.masthead-open {
+    position: relative;
+    padding-top: 11rem;
+    padding-bottom: 5rem;
+    width: 100%;
+    margin-top: 8rem;
+
+}
+
+.masthead-case .bg-img,
+.masthead-open .bg-img {
+    object-fit: cover;
+    object-position: 50% 50%;
+}

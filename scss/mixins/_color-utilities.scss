@@ -1,0 +1,119 @@
+// mixins/_color-utilities.scss
+
+// Import the color contrast functions
+@import 'color-contrast';
+
+// Generate color utilities for base colors
+// Generate color utilities for base colors
+@mixin generate-base-color-utilities {
+  @each $name, $value in $colors {
+    // Text color utility
+    .text-#{$name} {
+      color: var(--color-#{$name}) !important;
+    }
+    
+    // Background color utility with automatic contrast
+    .bg-#{$name} {
+      background-color: var(--color-#{$name}) !important;
+      color: #{get-contrast-color($value)} !important;
+    }
+    
+    // Border color utility
+    .border-#{$name} {
+      border-color: var(--color-#{$name}) !important;
+    }
+  }
+}
+
+@mixin generate-tint-utilities {
+  @each $color-name in $tint-collections {
+    $base-color: map-get($colors, $color-name);
+    
+    @if $base-color {
+      @each $variant, $settings in $tint-percentages {
+        $percentage: map-get($settings, percentage);
+        $is-lighter: map-get($settings, is-lighter);
+        
+        // Calculate the variant color for contrast determination
+        $variant-color: $base-color;
+        @if $variant == "500" {
+          $variant-color: $base-color;
+        } @else if $is-lighter {
+          $variant-color: mix(white, $base-color, $percentage);
+        } @else {
+          $variant-color: mix(black, $base-color, $percentage);
+        }
+        
+        // Text color utility
+        .text-#{$color-name}-#{$variant} {
+          color: var(--color-#{$color-name}-#{$variant}) !important;
+        }
+        
+        // Background color utility with automatic contrast
+        .bg-#{$color-name}-#{$variant} {
+          background-color: var(--color-#{$color-name}-#{$variant}) !important;
+          color: #{get-contrast-color($variant-color)} !important;
+        }
+        
+        // Border color utility
+        .border-#{$color-name}-#{$variant} {
+          border-color: var(--color-#{$color-name}-#{$variant}) !important;
+        }
+      }
+    }
+  }
+}
+
+// Generate theme override utilities
+@mixin generate-theme-utilities {
+  // Simple text color overrides
+  .text-light {
+    color: var(--color-text-light) !important;
+  }
+  
+  .text-dark {
+    color: var(--color-text-dark) !important;
+  }
+  
+  // Comprehensive theme classes
+  .theme-dark {
+    color: var(--color-text-light) !important;
+    
+    a { 
+      color: var(--color-blue-light) !important; 
+      &:hover { 
+        color: #{lighten($blue-light, 15%)} !important; 
+      }
+    }
+    
+    // Additional dark theme styling
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    
+    .border-subtle {
+      border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+  }
+  
+  .theme-light {
+    color: var(--color-text-dark) !important;
+    
+    a { 
+      color: var(--color-blue-cerulean) !important; 
+      &:hover { 
+        color: #{darken($blue-cerulean, 15%)} !important; 
+      }
+    }
+    
+    // Additional light theme styling
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    
+    .border-subtle {
+      border-color: rgba(0, 0, 0, 0.2) !important;
+    }
+  }
+}
+
+// Call the mixins to generate utilities
+@include generate-base-color-utilities;
+@include generate-tint-utilities;
+@include generate-theme-utilities;

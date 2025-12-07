@@ -1,0 +1,16 @@
+// Functions for calculating color luminance and contrast
+
+// Ultra-simple YIQ contrast method
+@function get-contrast-color($background-color) {
+  $r: red($background-color);
+  $g: green($background-color);
+  $b: blue($background-color);
+  
+  $yiq: (($r*299) + ($g*587) + ($b*114)) / 1000;
+  
+  @if $yiq >= 128 {
+    @return $text-dark;
+  } @else {
+    @return $text-light;
+  }
+}

@@ -1,0 +1,151 @@
+// mixins/_typography-mixins.scss
+
+// Convert pixels to rem (for more consistent units)
+@function px-to-rem($px) {
+  @return #{$px / 16px}rem;
+}
+
+// Apply consistent spacing between headings
+@mixin heading-spacing {
+  // Add consistent bottom margin to all headings
+  h1, .h1, 
+  h2, .h2, 
+  h3, .h3, 
+  h4, .h4, 
+  h5, .h5, 
+  h6, .h6 {
+    margin-bottom: var(--space-heading-after);
+  }
+  
+  // Adjust top margins for headings that follow other elements
+  h1:not(:first-child), .h1:not(:first-child) {
+    margin-top: var(--space-6);
+  }
+  
+  h2:not(:first-child), .h2:not(:first-child) {
+    margin-top: var(--space-5);
+  }
+  
+  h3:not(:first-child), .h3:not(:first-child), 
+  h4:not(:first-child), .h4:not(:first-child) {
+    margin-top: var(--space-4);
+  }
+  
+  // Remove top margin when a heading follows another heading
+  h1 + h2, .h1 + .h2,
+  h2 + h3, .h2 + .h3,
+  h3 + h4, .h3 + .h4,
+  h4 + h5, .h4 + .h5,
+  h5 + h6, .h5 + .h6 {
+    margin-top: var(--space-heading-after);
+  }
+}
+
+// Apply responsive typography styles - With PX to REM conversion
+@mixin responsive-typography {
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    line-height: var(--line-height-headings);
+  }
+  h1, .h1 { 
+    font-size: var(--h1-font-size);
+    font-weight: var(--h1-font-weight);
+  }
+  h2, .h2 { 
+    font-size: var(--h2-font-size); 
+    font-weight: var(--h2-font-weight);
+  }
+  h3, .h3 { 
+    font-size: var(--h3-font-size); 
+    font-weight: var(--h3-font-weight);
+  }
+  h4, .h4 { 
+    font-size: var(--h4-font-size); 
+    font-weight: var(--h4-font-weight);
+  }
+  h5, .h5 { 
+    font-size: var(--h5-font-size); 
+    font-weight: var(--h5-font-weight);
+  }
+  h6, .h6 { 
+    font-size: var(--h6-font-size); 
+    font-weight: var(--h6-font-weight);
+  }
+  p, .body { font-size: var(--p-font-size); }
+
+  @include heading-spacing;
+
+}
+// Generate text size utility classes
+@mixin generate-text-size-utilities {
+  .text-h1 { font-size: px-to-rem(var(--h1-font-size)) !important; }
+  .text-h2 { font-size: px-to-rem(var(--h2-font-size)) !important; }
+  .text-h3 { font-size: px-to-rem(var(--h3-font-size)) !important; }
+  .text-h4 { font-size: px-to-rem(var(--h4-font-size)) !important; }
+  .text-h5 { font-size: px-to-rem(var(--h5-font-size)) !important; }
+  .text-h6 { font-size: px-to-rem(var(--h6-font-size)) !important; }
+  .text-p { font-size: px-to-rem(var(--p-font-size)) !important; }
+}
+
+
+@mixin generate-text-alignment-utilities {
+  .text-left {
+    text-align: left !important;
+  }
+  
+  .text-center {
+    text-align: center !important;
+  }
+  
+  .text-right {
+    text-align: right !important;
+  }
+  
+  .text-justify {
+    text-align: justify !important;
+  }
+  
+  // Font weight
+  .fw-bolder {
+    font-weight: var(--font-weight-bold) !important;
+  }
+  
+  // Transform
+  .caps, .text-uppercase {
+    text-transform: uppercase !important;
+  }
+  
+  .text-lowercase {
+    text-transform: lowercase !important;
+  }
+  
+  .text-capitalize {
+    text-transform: capitalize !important;
+  }
+  
+  // Responsive variants
+  @each $breakpoint in map-keys($breakpoints) {
+    @if $breakpoint != "xs" {  // Skip xs as it's the default
+      @include media-breakpoint-up($breakpoint) {
+        .text-#{$breakpoint}-left {
+          text-align: left !important;
+        }
+        
+        .text-#{$breakpoint}-center {
+          text-align: center !important;
+        }
+        
+        .text-#{$breakpoint}-right {
+          text-align: right !important;
+        }
+        
+        .text-#{$breakpoint}-justify {
+          text-align: justify !important;
+        }
+      }
+    }
+  }
+}
+
+// Add to your responsive-typography mixin call
+@include generate-text-alignment-utilities;

@@ -1,0 +1,23 @@
+//
+// Footer
+//
+
+.footer, .copyright {
+    background-color: var(--color-primary);
+}
+.footer {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+.copyright {
+    background-color: var(--color-primary-700);
+    padding-bottom: 5rem;
+}
+.copyright small {
+    opacity: .6;
+    font-weight: 300;
+}
+.footer-insignia {
+    width: 110px;
+}
+

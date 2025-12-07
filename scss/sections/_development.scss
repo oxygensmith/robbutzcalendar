@@ -1,0 +1,88 @@
+//
+// Development portfolio (websites)
+//
+
+#development {
+    position: relative;
+}
+
+.grid-basic {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.grid-basic .item {
+    position: relative;
+    display: block;
+    border-radius: $border-radius;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .3s, box-shadow .3s;
+    transform: translateY(0);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0);
+    background-color: #ccc;
+
+    figcaption {
+        position: absolute;
+        width: 100%;
+        background-color: var(--color-primary);
+        opacity: 0;
+        padding: 0 .5em;
+        flex: 1;
+        color: var(--white);
+        transition: all .2s ease-in-out;
+        transform: translateX(-150px);
+        &.top {
+            top: 0;
+        }
+        &.bottom {
+            bottom: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+    &:hover {
+        box-shadow: 0px 17px 15px 4px rgba(0, 0, 0, 0.4);
+        transform: translateY(-20px);
+        figcaption {
+            opacity: .9;
+            &.top, &.bottom {
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+.grid-basic .item.landscape {
+    max-height: 300px;
+}
+
+// appearance of development grid captions
+.grid-basic .item figcaption {
+    color: #fff;
+
+    &.top figure {
+        margin: 1rem 1rem 1rem 1rem;
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
+    &.bottom figure {
+        margin: .5rem 1rem 1rem 1rem;
+        font-size: .8rem;
+    }
+    &.bottom .icon {
+
+    }
+
+    @include media-breakpoint-up(md) {
+        &.top figure {
+            font-size: 1.6rem;
+        }
+        &.bottom figure {
+            font-size: 1rem;
+        }
+    }
+}

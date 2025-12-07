@@ -1,0 +1,250 @@
+[
+  {
+    "id": "rec06Az5NjlbggNLs",
+    "createdTime": "2025-12-07T06:38:10.000Z",
+    "fields": {
+      "Start Time": "15:30",
+      "Day of Week": "Monday",
+      "Event Type": "Regular",
+      "End Time": "17:00",
+      "Status": "Busy",
+      "Duration (minutes)": 90,
+      "Title": "M's Swim Lesson"
+    }
+  },
+  {
+    "id": "rec0VhhYqMlTa8ODf",
+    "createdTime": "2025-12-07T06:32:05.000Z",
+    "fields": {
+      "Start Time": "9:00",
+      "Day of Week": "Sunday",
+      "Event Type": "Regular",
+      "End Time": "20:00",
+      "Status": "Available",
+      "Duration (minutes)": 660,
+      "Title": "Free Time, also bookable"
+    }
+  },
+  {
+    "id": "rec2UYVWSkrqGpWfc",
+    "createdTime": "2025-12-07T05:56:21.000Z",
+    "fields": {
+      "Start Time": "10:00",
+      "Day of Week": "Monday",
+      "Event Type": "Regular",
+      "End Time": "15:00",
+      "Status": "Available",
+      "Duration (minutes)": 300,
+      "Title": "Workday (Monday)"
+    }
+  },
+  {
+    "id": "recA9B9ExcMM8cXcE",
+    "createdTime": "2025-12-07T18:14:21.000Z",
+    "fields": {
+      "Start Time": "15:30",
+      "Day of Week": "Tuesday",
+      "Event Type": "Regular",
+      "End Time": "19:00",
+      "Status": "Busy",
+      "Duration (minutes)": 210,
+      "Title": "M visit (Tuesday)"
+    }
+  },
+  {
+    "id": "recCQp89F7zQroRzc",
+    "createdTime": "2025-12-07T06:23:46.000Z",
+    "fields": {
+      "Start Time": "12:00",
+      "Day of Week": "Wednesday",
+      "Event Type": "Regular",
+      "End Time": "13:15",
+      "Status": "Busy",
+      "Duration (minutes)": 75,
+      "Title": "NFU Standing Meeting"
+    }
+  },
+  {
+    "id": "recCzry1zN4GRAaWF",
+    "createdTime": "2025-12-07T06:31:00.000Z",
+    "fields": {
+      "Start Time": "9:00",
+      "Day of Week": "Friday",
+      "Event Type": "Regular",
+      "End Time": "14:30",
+      "Status": "Available",
+      "Duration (minutes)": 330,
+      "Title": "Workday - Friday"
+    }
+  },
+  {
+    "id": "recEUoFywogAWfMM8",
+    "createdTime": "2025-12-07T06:39:46.000Z",
+    "fields": {
+      "Start Time": "09:00",
+      "Day of Week": "Tuesday",
+      "Event Type": "Regular",
+      "End Time": "10:00",
+      "Status": "Busy",
+      "Duration (minutes)": 60,
+      "Title": "Workday - Standup Prep"
+    }
+  },
+  {
+    "id": "recI2vF67desftU3I",
+    "createdTime": "2025-12-07T05:56:21.000Z",
+    "fields": {
+      "Start Time": "09:00",
+      "Day of Week": "Wednesday",
+      "Event Type": "Regular",
+      "End Time": "11:45",
+      "Status": "Available",
+      "Duration (minutes)": 165,
+      "Title": "Workday (Wed) Morning"
+    }
+  },
+  {
+    "id": "recOhWamRgHKuYQ9B",
+    "createdTime": "2025-12-07T06:40:26.000Z",
+    "fields": {
+      "Start Time": "13:15",
+      "Day of Week": "Wednesday",
+      "Event Type": "Regular",
+      "End Time": "17:00",
+      "Status": "Available",
+      "Duration (minutes)": 225,
+      "Title": "Workday (Wed) Afternoon"
+    }
+  },
+  {
+    "id": "recTPJ8Pybph0GxME",
+    "createdTime": "2025-12-07T18:12:33.000Z",
+    "fields": {
+      "Start Time": "10:30",
+      "Day of Week": "Tuesday",
+      "Event Type": "Regular",
+      "End Time": "15:30",
+      "Status": "Available",
+      "Duration (minutes)": 300,
+      "Title": "Workday (Tues) Afternoon"
+    }
+  },
+  {
+    "id": "recXeIT5VdDHm0Sdl",
+    "createdTime": "2025-12-07T05:56:21.000Z",
+    "fields": {
+      "Start Time": "7:00",
+      "Day of Week": "Saturday",
+      "Event Type": "Regular",
+      "End Time": "19:00",
+      "Status": "Busy",
+      "Duration (minutes)": 720,
+      "Title": "M visit (Saturday)"
+    }
+  },
+  {
+    "id": "recbEYqvfvhywzG6d",
+    "createdTime": "2025-12-07T05:58:52.000Z",
+    "fields": {
+      "Start Time": "10:00",
+      "Day of Week": "Tuesday",
+      "Event Type": "Regular",
+      "End Time": "10:30",
+      "Status": "Busy",
+      "Duration (minutes)": 30,
+      "Title": "Arcana Standup (Tues)"
+    }
+  },
+  {
+    "id": "reccTfcF3iZPrrZfV",
+    "createdTime": "2025-12-07T06:54:54.000Z",
+    "fields": {
+      "Start Time": "15:30",
+      "Day of Week": "Friday",
+      "Event Type": "Regular",
+      "End Time": "22:00",
+      "Status": "Busy",
+      "Duration (minutes)": 390,
+      "Title": "M visit (Friday)"
+    }
+  },
+  {
+    "id": "receeMTHC9l01MzVk",
+    "createdTime": "2025-12-07T05:56:21.000Z",
+    "fields": {
+      "Start Time": "11:30",
+      "Day of Week": "Thursday",
+      "Date": "2025-12-11",
+      "Event Type": "Special",
+      "End Time": "13:30",
+      "Status": "Busy",
+      "Duration (minutes)": 120,
+      "Title": "Special (Lawyer day)"
+    }
+  },
+  {
+    "id": "reci05Q6HK0UQ2lfi",
+    "createdTime": "2025-12-07T06:41:18.000Z",
+    "fields": {
+      "Start Time": "9:00",
+      "Day of Week": "Thursday",
+      "Event Type": "Regular",
+      "End Time": "10:00",
+      "Status": "Busy",
+      "Duration (minutes)": 60,
+      "Title": "Workday - Standup Prep (Thurs)"
+    }
+  },
+  {
+    "id": "recic6ruDzDcXkzIu",
+    "createdTime": "2025-12-07T06:43:35.000Z",
+    "fields": {
+      "Start Time": "10:30",
+      "Day of Week": "Thursday",
+      "Event Type": "Regular",
+      "End Time": "15:30",
+      "Status": "Available",
+      "Duration (minutes)": 300,
+      "Title": "Workday - Thurs"
+    }
+  },
+  {
+    "id": "reck5LI2CFXv8rAjE",
+    "createdTime": "2025-12-07T05:59:38.000Z",
+    "fields": {
+      "Start Time": "10:00",
+      "Day of Week": "Thursday",
+      "Event Type": "Regular",
+      "End Time": "10:30",
+      "Status": "Busy",
+      "Duration (minutes)": 30,
+      "Title": "Arcana Standup (Thurs)"
+    }
+  },
+  {
+    "id": "recqfRCtJQArjgXsu",
+    "createdTime": "2025-12-07T05:56:21.000Z",
+    "fields": {
+      "Start Time": "09:00",
+      "Day of Week": "Monday",
+      "Event Type": "Regular",
+      "End Time": "10:00",
+      "Status": "Busy",
+      "Duration (minutes)": 60,
+      "Title": "Money Mondays"
+    }
+  },
+  {
+    "id": "recvozGzYsnvEb7f7",
+    "createdTime": "2025-12-07T05:56:21.000Z",
+    "fields": {
+      "Start Time": "15:30",
+      "Day of Week": "Thursday",
+      "Event Type": "Regular",
+      "End Time": "19:00",
+      "Status": "Busy",
+      "Duration (minutes)": 210,
+      "Title": "M visit (Thursday)"
+    }
+  }
+]

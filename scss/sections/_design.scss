@@ -1,0 +1,92 @@
+//
+// Portfolio-design
+//
+
+#design {
+    background-color: var(--color-secondary);
+}
+
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1200px;
+    gap: 30px;
+}
+
+#gallery .item {
+    margin: 5px;
+    width: calc(30% - 10px);
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+#gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius--base);
+}
+
+#gallery .item figcaption {
+    position: absolute;
+    width: 100%;
+    background-color: var(--color-primary);
+    opacity: 0;
+    bottom: 0;
+    transform: translateY(150px);
+    transition: all .2s ease-in-out;
+    pointer-events: none;
+    border-bottom-left-radius: var(--border-radius--base);
+    border-bottom-right-radius: var(--border-radius--base);
+}
+#gallery .item:hover figcaption {
+    transform: translateY(0);
+    opacity: .8;
+}
+
+#gallery figcaption figure {
+    color: #fff;
+    text-align: center;
+    &:first-child {
+        margin: 1rem 1rem 1rem 1rem;
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
+    &:last-child {
+        margin: .5rem 1rem 1rem 1rem;
+        font-size: .8rem;
+        text-transform: uppercase;
+    }
+    @include media-breakpoint-up(md) {
+        &:first-child {
+            font-size: 1.6rem;
+        }
+        &:last-child {
+            font-size: 1rem;
+        }
+    }
+    a:link,
+    a:visited {
+        color: var(--white);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    a:hover,
+    a:active {
+        opacity: .8;
+    }
+}
+
+.badge {
+    display: inline-block;
+    border-radius: 100px;
+    font-size: 14px; // TODO: make responsive later
+    padding: 3px 6px;
+}
+
+.badge-body {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+}

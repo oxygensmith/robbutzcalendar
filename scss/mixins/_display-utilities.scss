@@ -1,0 +1,60 @@
+// mixins/_display-utilities.scss
+
+@mixin display-utilities {
+  .d-none {
+    display: none !important;
+  }
+  
+  .d-inline {
+    display: inline !important;
+  }
+  
+  .d-inline-block {
+    display: inline-block !important;
+  }
+  
+  .d-block {
+    display: block !important;
+  }
+  
+  .d-flex {
+    display: flex !important;
+  }
+  
+  .d-grid {
+    display: grid !important;
+  }
+  
+  // Responsive variants
+  @each $breakpoint in map-keys($breakpoints) {
+    @if $breakpoint != "xs" {  // Skip xs as it's the default
+      @include media-breakpoint-up($breakpoint) {
+        .d-#{$breakpoint}-none {
+          display: none !important;
+        }
+        
+        .d-#{$breakpoint}-inline {
+          display: inline !important;
+        }
+        
+        .d-#{$breakpoint}-inline-block {
+          display: inline-block !important;
+        }
+        
+        .d-#{$breakpoint}-block {
+          display: block !important;
+        }
+        
+        .d-#{$breakpoint}-flex {
+          display: flex !important;
+        }
+        
+        .d-#{$breakpoint}-grid {
+          display: grid !important;
+        }
+      }
+    }
+  }
+}
+
+@include display-utilities;

@@ -1,0 +1,76 @@
+// Fix for dropdown positioning in mobile
+.navbar-collapse {
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--nav-bg);
+  border-radius: 0 0 0.25rem 0.25rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+  // 
+  height: 0;
+  overflow: hidden;
+  transition: 0.35s ease;
+  /* top: 100%; // Position right below the navbar
+  left: 0;
+  right: 0; */
+
+  // When navbar is shrunk, adjust background color
+  .navbar.navbar-shrink & {
+    background-color: var(--nav-bg--transform);
+  }
+  
+  // Important: Make it respect the container width
+  .nav-container & {
+    left: 1rem; // Match the navbar margin
+    right: 1rem; // Match the navbar margin
+    width: auto !important;
+  }
+  
+  // Adjust margins for dropdown
+  &.show {
+    margin-top: 0; // Remove the gap entirely
+  }
+  
+  // Style the items in the dropdown
+  .navbar-nav {
+    padding: 0.5rem 0;
+    
+    .nav-item {
+      padding: 0 1rem; // Horizontal padding
+      
+      .nav-link {
+        padding: 0.75rem 0; // Vertical padding
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  
+  // Desktop styles using your mixin
+  @include media-breakpoint-up(lg) {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    
+    &.show {
+      margin-top: inherit;
+    }
+    
+    .navbar-nav {
+      padding: 0;
+      
+      .nav-item {
+        padding: 0;
+        
+        .nav-link {
+          padding: var(--nav-link--padding-y) var(--nav-link--padding-x);
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

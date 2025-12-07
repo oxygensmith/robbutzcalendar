@@ -1,0 +1,72 @@
+// mixins/_grid-utilities.scss
+
+@mixin grid-system {
+  // Container (reuse from your container system)
+  
+  // Row
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(var(--space-3) * -1);
+    margin-left: calc(var(--space-3) * -1);
+    
+    > * {
+      padding-right: var(--space-3);
+      padding-left: var(--space-3);
+    }
+  }
+  
+  // Basic columns
+  .col {
+    flex: 1 0 0%;
+  }
+  
+  // Columns that take specific widths
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      flex: 0 0 auto;
+      width: percentage($i / 12);
+    }
+  }
+  
+  // Responsive columns
+  @each $breakpoint in map-keys($breakpoints) {
+    @if $breakpoint != "xs" {  // Skip xs as it's the default
+      @include media-breakpoint-up($breakpoint) {
+        @for $i from 1 through 12 {
+          .col-#{$breakpoint}-#{$i} {
+            flex: 0 0 auto;
+            width: percentage($i / 12);
+          }
+        }
+      }
+    }
+  }
+  
+  // Utilities for alignment
+  .justify-content-center {
+    justify-content: center !important;
+  }
+  
+  .justify-content-between {
+    justify-content: space-between !important;
+  }
+  
+  .justify-content-around {
+    justify-content: space-around !important;
+  }
+  
+  .align-items-center {
+    align-items: center !important;
+  }
+  
+  .align-items-start {
+    align-items: flex-start !important;
+  }
+  
+  .align-items-end {
+    align-items: flex-end !important;
+  }
+}
+
+@include grid-system;

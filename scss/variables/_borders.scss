@@ -1,0 +1,15 @@
+// 
+// Borders
+// 
+:root {
+    --border-width--base: 0.125rem;
+    --border-radius--base: 0.5rem;
+    --border-radius--lg: 0.75rem;
+    --border-radius--sm: 0.25rem;
+}
+
+// backwards compatibility:
+$border-width: var(--border-width--base);
+$border-radius: var(--border-radius--base);
+$border-radius-lg: var(--border-radius--lg);
+$border-radius-sm: var(--border-radius--sm);
