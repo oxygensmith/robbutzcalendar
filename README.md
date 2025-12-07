@@ -2,6 +2,10 @@
 
 A simple, static availability calendar that displays my weekly schedule, pulling data from Airtable. It's intended as a section of my website that is compiled elsewhere, so it has the same styles. If you use this, just replace the branding and styles with your own.
 
+Unless I've totally broken this, a working example is up at:
+[https://calendar.robbutz.com/](https://calendar.robbutz.com/)
+or [https://robbutz-calendar.netlify.app/](https://robbutz-calendar.netlify.app/) if the DNS/SSL is not working.
+
 ## Features
 
 - **5-week view**: Current week + 4 weeks ahead
