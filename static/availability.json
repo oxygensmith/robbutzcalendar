@@ -19,9 +19,9 @@
       "Start Time": "10:00",
       "Day of Week": "Monday",
       "Event Type": "Regular",
-      "End Time": "15:00",
+      "End Time": "17:00",
       "Status": "Available",
-      "Duration (minutes)": 300,
+      "Duration (minutes)": 420,
       "Title": "Workday (Monday)"
     }
   },
