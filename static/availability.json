@@ -176,9 +176,9 @@
       "Start Time": "10:30",
       "Day of Week": "Thursday",
       "Event Type": "Regular",
-      "End Time": "15:30",
+      "End Time": "18:00",
       "Status": "Available",
-      "Duration (minutes)": 300,
+      "Duration (minutes)": 450,
       "Title": "Workday - Thurs"
     }
   },
