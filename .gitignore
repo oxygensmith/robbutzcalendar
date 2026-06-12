@@ -8,6 +8,7 @@ test-dist
 test-dev
 coverage
 .parcel-cache/*
+extra/
 
 ### CORDOVA
 platforms/

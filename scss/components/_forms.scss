@@ -4,50 +4,42 @@
 
 form {
   margin-bottom: var(--space-heading-after);
-}  
-
+}
 
 label {
-    font-size: 1.5rem;
-    color: $gray-600;
+  font-size: 0.8em;
+  color: $gray-600;
+  text-transform: uppercase;
 }
 
 .btn {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .req {
-    margin-left: .5rem;
-    color: $tangerine;
+  margin-left: 0.5rem;
+  color: $tangerine;
 }
 
 .form-control {
   box-sizing: border-box;
 }
 
-// different style for labels like first or last name
-.form-details label {
-    text-transform: uppercase;
-    font-size: .75em;
-}
-
-
 // Contact form validation styles
 #contactForm {
-  
-   display: inherit;
+  display: inherit;
 
   // Hide custom error messages by default
   .custom-error {
     display: none;
   }
-  
+
   // Show error messages only when field is invalid
   .is-invalid + .custom-error,
   .is-invalid .custom-error {
     display: block;
   }
-  
+
   // Style the error messages
   .custom-error {
     width: 100%;
@@ -55,18 +47,18 @@ label {
     font-size: 0.875em;
     color: #dc3545;
   }
-  
+
   // Ensure checkbox container can show errors properly
   .form-group {
     position: relative;
-    
+
     &.is-invalid {
       .form-check-input {
         border-color: #dc3545;
       }
     }
   }
-  
+
   // Success/error message styling
   #submitSuccessMessage,
   #submitErrorMessage {
@@ -75,7 +67,7 @@ label {
       display: none !important;
     }
   }
-  
+
   // Submit button disabled state
   #submitButton {
     &.disabled,
@@ -84,14 +76,39 @@ label {
       pointer-events: none;
     }
   }
-  
+
   // Optional: Add some visual feedback for valid fields
   .is-valid {
     border-color: #198754;
-    
+
     &:focus {
       border-color: #198754;
       box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+    }
+  }
+}
+
+#bookingForm {
+  .form-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    // First two cells take up one column each
+    > *:nth-child(1),
+    > *:nth-child(2) {
+      grid-column: span 1;
+    }
+    // Remaining cells (3-6) span full width
+    > *:nth-child(n + 3) {
+      grid-column: span 2;
+    }
+    @media screen and (min-width: 768px) {
+      grid-template-columns: 1.45fr 1fr 1fr;
+
+      // Reset all cells to default spanning
+      > *:nth-child(n) {
+        grid-column: span 1;
+      }
     }
   }
 }

@@ -9,7 +9,7 @@ class AvailabilityCalendar {
 
   async init() {
     console.log("🚀 Initializing calendar...");
-    await this.loadAvailability(); // ← Add this line
+    await this.loadAvailability();
     this.render();
   }
 
@@ -25,7 +25,7 @@ class AvailabilityCalendar {
 
       const data = await response.json();
       console.log("✅ Loaded records:", data.length);
-      this.events = data.map((record) => record.fields); // ← Change to this.events
+      this.events = data.map((record) => record.fields);
       console.log("📅 Processed events:", this.events);
     } catch (error) {
       console.error("❌ Error loading availability:", error);
